@@ -8,27 +8,27 @@
 using namespace std;
 
 /**
- * Ìø±íµÄÒ»ÖÖÊµÏÖ·½·¨¡£
- * Ìø±íÖĞ´æ´¢µÄÊÇÕıÕûÊı£¬²¢ÇÒ´æ´¢µÄÊÇ²»ÖØ¸´µÄ¡£
+ * è·³è¡¨çš„ä¸€ç§å®ç°æ–¹æ³•ã€‚
+ * è·³è¡¨ä¸­å­˜å‚¨çš„æ˜¯æ­£æ•´æ•°ï¼Œå¹¶ä¸”å­˜å‚¨çš„æ˜¯ä¸é‡å¤çš„ã€‚
  *
- * Ìø±íµÄC++°æ±¾.
- * ·­ÒëJAVA°æ±¾ Ô­×÷Õß Author£ºZHENG
+ * è·³è¡¨çš„C++ç‰ˆæœ¬.
+ * ç¿»è¯‘JAVAç‰ˆæœ¬ åŸä½œè€… Authorï¼šZHENG
  * 
- * Author£ºpuhuaqiang
+ * Authorï¼špuhuaqiang
  * 
- *  Ìø±í½á¹¹:
+ *  è·³è¡¨ç»“æ„:
  * 
- *  µÚK¼¶           1           9
- *  µÚK-1¼¶         1     5     9
- *  µÚK-2¼¶         1  3  5  7  9
+ *  ç¬¬Kçº§           1           9
+ *  ç¬¬K-1çº§         1     5     9
+ *  ç¬¬K-2çº§         1  3  5  7  9
  *  ...             ....
- *  µÚ0¼¶(Ô­Ê¼Á´±í)  1  2  3  4  5  6  7  8  9
+ *  ç¬¬0çº§(åŸå§‹é“¾è¡¨)  1  2  3  4  5  6  7  8  9
  */
 
 const int MAX_LEVEL = 16;
 
 /**
- * @brief ½Úµã
+ * @brief èŠ‚ç‚¹
 */
 class CNode
 {
@@ -38,40 +38,40 @@ public:
 
     std::string toString();
     /**
-     * @brief »ñÈ¡Ë÷ÒıÁ´±í
+     * @brief è·å–ç´¢å¼•é“¾è¡¨
     */
     CNode** GetIdxList();
 
     /**
-     * @brief ÉèÖÃÊı¾İ
+     * @brief è®¾ç½®æ•°æ®
     */
     void SetData(int v);
     /**
-     * @brief »ñÈ¡Êı¾İ
+     * @brief è·å–æ•°æ®
     */
     int GetData();
     /**
-    * @brief ÉèÖÃ×î´óË÷Òı¼¶±ğ
+    * @brief è®¾ç½®æœ€å¤§ç´¢å¼•çº§åˆ«
     */
     void SetLevel(int l);
 private:
-    /**µ±Ç°½ÚµãµÄÖµ*/
+    /**å½“å‰èŠ‚ç‚¹çš„å€¼*/
     int m_data;
     /** 
-     * µ±Ç°½ÚµãµÄÃ¿¸öµÈ¼¶µÄÏÂÒ»¸ö½Úµã.
-     * µÚ2¼¶ N1 N2
-     * µÚ1¼¶ N1 N2
-     * Èç¹ûN1ÊÇ±¾½Úµã,Ôò m_lpForwards[x] ±£´æµÄÊÇN2
+     * å½“å‰èŠ‚ç‚¹çš„æ¯ä¸ªç­‰çº§çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹.
+     * ç¬¬2çº§ N1 N2
+     * ç¬¬1çº§ N1 N2
+     * å¦‚æœN1æ˜¯æœ¬èŠ‚ç‚¹,åˆ™ m_lpForwards[x] ä¿å­˜çš„æ˜¯N2
      * 
-     * [0] ¾ÍÊÇÔ­Ê¼Á´±í.
+     * [0] å°±æ˜¯åŸå§‹é“¾è¡¨.
      */
     CNode* m_lpForwards[MAX_LEVEL];
-    /**µ±Ç°½ÚµãµÄËùÔÚµÄ×î´óË÷Òı¼¶±ğ*/
+    /**å½“å‰èŠ‚ç‚¹çš„æ‰€åœ¨çš„æœ€å¤§ç´¢å¼•çº§åˆ«*/
     int m_iMaxLevel;
 };
 
 /**
- * @brief Ìø±í
+ * @brief è·³è¡¨
 */
 class CSkipList
 {
@@ -79,28 +79,28 @@ public:
     CSkipList();
     ~CSkipList();
     /**
-     * @brief ²éÕÒÖ¸¶¨µÄÖµµÄ½Úµã
-     * @param v ÕıÕûÊı
+     * @brief æŸ¥æ‰¾æŒ‡å®šçš„å€¼çš„èŠ‚ç‚¹
+     * @param v æ­£æ•´æ•°
     */
     CNode* Find(int v);
     /**
-     * @brief ²åÈëÖ¸¶¨µÄÖµ
-     * @param v ÕıÕûÊı
+     * @brief æ’å…¥æŒ‡å®šçš„å€¼
+     * @param v æ­£æ•´æ•°
     */
     void Insert(int v);
     /**
-     * @brief É¾³ıÖ¸¶¨µÄÖµµÄ½Úµã
-     * @param v ÕıÕûÊı
+     * @brief åˆ é™¤æŒ‡å®šçš„å€¼çš„èŠ‚ç‚¹
+     * @param v æ­£æ•´æ•°
     */
     int Delete(int v);
     void PrintAll();
     /**
-     * @brief ´òÓ¡Ìø±í½á¹¹
-     * @param l µÈÓÚ-1Ê±´òÓ¡ËùÓĞ¼¶±ğµÄ½á¹¹ >=0Ê±´òÓ¡Ö¸¶¨¼¶±ğµÄ½á¹¹
+     * @brief æ‰“å°è·³è¡¨ç»“æ„
+     * @param l ç­‰äº-1æ—¶æ‰“å°æ‰€æœ‰çº§åˆ«çš„ç»“æ„ >=0æ—¶æ‰“å°æŒ‡å®šçº§åˆ«çš„ç»“æ„
     */
     void PrintAll(int l);
     /**
-     * @brief ²åÈë½ÚµãÊ±,µÃµ½²åÈëK¼¶µÄËæ»úº¯Êı
+     * @brief æ’å…¥èŠ‚ç‚¹æ—¶,å¾—åˆ°æ’å…¥Kçº§çš„éšæœºå‡½æ•°
      * @return K
     */
     int RandomLevel();
@@ -108,8 +108,8 @@ public:
 private:
     int levelCount;
     /**
-     * Á´±í
-     * ´øÍ·/ÉÚËù(½Úµã)
+     * é“¾è¡¨
+     * å¸¦å¤´/å“¨æ‰€(èŠ‚ç‚¹)
     */
     CNode* m_lpHead;
 };
@@ -117,7 +117,7 @@ private:
 int main()
 {
     CSkipList skipList;
-    /// ²åÈëÔ­Ê¼Öµ
+    /// æ’å…¥åŸå§‹å€¼
     for(int i=1; i< 50; i++){
         if((i%3) == 0){
             skipList.Insert(i);
@@ -130,26 +130,26 @@ int main()
     }
     skipList.PrintAll();
     std::cout<<std::endl;
-    /// ´òÓ¡ËùÓĞµÈ¼¶½á¹¹
+    /// æ‰“å°æ‰€æœ‰ç­‰çº§ç»“æ„
     skipList.PrintAll(-1);
-    /// ²éÕÒ
+    /// æŸ¥æ‰¾
     std::cout<<std::endl;
     CNode* lpNode = skipList.Find(27);
     if(NULL != lpNode){
-        std::cout<<"²éÕÒÖµÎª27µÄ½Úµã,ÕÒµ½¸Ã½Úµã,½ÚµãÖµ:"<<lpNode->GetData()<<std::endl;
+        std::cout<<"æŸ¥æ‰¾å€¼ä¸º27çš„èŠ‚ç‚¹,æ‰¾åˆ°è¯¥èŠ‚ç‚¹,èŠ‚ç‚¹å€¼:"<<lpNode->GetData()<<std::endl;
     }else{
-        std::cout<<"²éÕÒÖµÎª27µÄ½Úµã,Î´ÕÒµ½¸Ã½Úµã"<<std::endl;
+        std::cout<<"æŸ¥æ‰¾å€¼ä¸º27çš„èŠ‚ç‚¹,æœªæ‰¾åˆ°è¯¥èŠ‚ç‚¹"<<std::endl;
     }
-    /// É¾³ı
+    /// åˆ é™¤
     std::cout<<std::endl;
     int ret = skipList.Delete(46);
     if(0 == ret){
-        std::cout<<"²éÕÒÖµÎª46µÄ½Úµã,ÕÒµ½¸Ã½Úµã,²¢É¾³ı³É¹¦"<<std::endl;
+        std::cout<<"æŸ¥æ‰¾å€¼ä¸º46çš„èŠ‚ç‚¹,æ‰¾åˆ°è¯¥èŠ‚ç‚¹,å¹¶åˆ é™¤æˆåŠŸ"<<std::endl;
     }else{
-        std::cout<<"²éÕÒÖµÎª46µÄ½Úµã,ÕÒµ½¸Ã½Úµã,É¾³ıÊ§°Ü"<<std::endl;
+        std::cout<<"æŸ¥æ‰¾å€¼ä¸º46çš„èŠ‚ç‚¹,æ‰¾åˆ°è¯¥èŠ‚ç‚¹,åˆ é™¤å¤±è´¥"<<std::endl;
     }
     std::cout<<std::endl;
-    //´òÓ¡ËùÓĞµÈ¼¶½á¹¹
+    //æ‰“å°æ‰€æœ‰ç­‰çº§ç»“æ„
     skipList.PrintAll(-1);
     std::cin.ignore();
     return 0;
@@ -212,19 +212,19 @@ CNode* CSkipList::Find(int v)
 {
     CNode* lpNode = m_lpHead;
     /**
-     * ´Ó ×î´ó¼¶Ë÷ÒıÁ´±í¿ªÊ¼²éÕÒ.
+     * ä» æœ€å¤§çº§ç´¢å¼•é“¾è¡¨å¼€å§‹æŸ¥æ‰¾.
      * K -> k-1 -> k-2 ...->0
     */
     for(int i=levelCount-1; i>=0; --i){
         /**
-         * ²éÕÒĞ¡ÓÚvµÄ½Úµã(lpNode).
+         * æŸ¥æ‰¾å°äºvçš„èŠ‚ç‚¹(lpNode).
         */
         while((NULL != lpNode->GetIdxList()[i]) && (lpNode->GetIdxList()[i]->GetData() < v)){
             lpNode = lpNode->GetIdxList()[i];
         }
     }
     /**
-     * lpNode ÊÇĞ¡ÓÚvµÄ½Úµã, lpNodeµÄÏÂÒ»¸ö½Úµã¾ÍµÈÓÚ»ò´óÓÚvµÄ½Úµã
+     * lpNode æ˜¯å°äºvçš„èŠ‚ç‚¹, lpNodeçš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹å°±ç­‰äºæˆ–å¤§äºvçš„èŠ‚ç‚¹
     */
     if((NULL != lpNode->GetIdxList()[0]) && (lpNode->GetIdxList()[0]->GetData() == v)){
         return lpNode->GetIdxList()[0];
@@ -233,55 +233,55 @@ CNode* CSkipList::Find(int v)
 }
 void CSkipList::Insert(int v)
 {
-    /// ĞÂ½Úµã
+    /// æ–°èŠ‚ç‚¹
     CNode* lpNewNode = new CNode();
     if(NULL == lpNewNode){
         return;
     }
 
     /**
-     * ĞÂ½Úµã×î´ó·Ö²¼ÔÚµÄË÷ÒıÁ´±íµÄÉÏÏŞ
-     * Èç¹û·µ»Ø 3,Ôò ĞÂµÄ½Úµã»áÔÚË÷Òı1¡¢2¡¢3ÉÏµÄÁ´±í¶¼´æÔÚ
+     * æ–°èŠ‚ç‚¹æœ€å¤§åˆ†å¸ƒåœ¨çš„ç´¢å¼•é“¾è¡¨çš„ä¸Šé™
+     * å¦‚æœè¿”å› 3,åˆ™ æ–°çš„èŠ‚ç‚¹ä¼šåœ¨ç´¢å¼•1ã€2ã€3ä¸Šçš„é“¾è¡¨éƒ½å­˜åœ¨
     */
     int level = RandomLevel();
     lpNewNode->SetData(v);
     lpNewNode->SetLevel(level);
 
     /**
-     * ÁÙÊ±Ë÷ÒıÁ´±í
-     * Ö÷ÒªÊÇµÃµ½ĞÂµÄ½ÚµãÔÚÃ¿¸öË÷ÒıÁ´±íÉÏµÄÎ»ÖÃ
+     * ä¸´æ—¶ç´¢å¼•é“¾è¡¨
+     * ä¸»è¦æ˜¯å¾—åˆ°æ–°çš„èŠ‚ç‚¹åœ¨æ¯ä¸ªç´¢å¼•é“¾è¡¨ä¸Šçš„ä½ç½®
     */
     CNode *lpUpdateNode[level];
     for(int i=0; i<level; i++){
-        /// Ã¿¸öË÷ÒıÁ´±íµÄÍ·½Úµã
+        /// æ¯ä¸ªç´¢å¼•é“¾è¡¨çš„å¤´èŠ‚ç‚¹
         lpUpdateNode[i] =m_lpHead;
     }
     CNode* lpFind = m_lpHead;
     for(int i= level-1; i >= 0; --i){
         /**
-         * ²éÕÒÎ»ÖÃ
-         *   eg.  µÚ1¼¶  1  7  10
-         *   Èç¹û²åÈëµÄÊÇ 6
-         *   lpFind->GetIdxList()[i]->GetData() : ±íÊ¾½ÚµãlpFindÔÚµÚ1¼¶Ë÷ÒıµÄÏÂÒ»¸ö½ÚµãµÄÊı¾İ
-         *   µ± "lpFind->GetIdxList()[i]->GetData() < v"²»³ÉÁ¢µÄÊ±ºò,
-         *   ĞÂ½Úµã¾ÍÒª²åÈëµ½ lpFind½ÚµãµÄºóÃæ, lpFind->GetIdxList()[i] ½ÚµãµÄÇ°Ãæ
-         *   ¼´ÔÚÕâÀï lpFind¾ÍÊÇ1  lpFind->GetIdxList()[i] ¾ÍÊÇ7
+         * æŸ¥æ‰¾ä½ç½®
+         *   eg.  ç¬¬1çº§  1  7  10
+         *   å¦‚æœæ’å…¥çš„æ˜¯ 6
+         *   lpFind->GetIdxList()[i]->GetData() : è¡¨ç¤ºèŠ‚ç‚¹lpFindåœ¨ç¬¬1çº§ç´¢å¼•çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„æ•°æ®
+         *   å½“ "lpFind->GetIdxList()[i]->GetData() < v"ä¸æˆç«‹çš„æ—¶å€™,
+         *   æ–°èŠ‚ç‚¹å°±è¦æ’å…¥åˆ° lpFindèŠ‚ç‚¹çš„åé¢, lpFind->GetIdxList()[i] èŠ‚ç‚¹çš„å‰é¢
+         *   å³åœ¨è¿™é‡Œ lpFindå°±æ˜¯1  lpFind->GetIdxList()[i] å°±æ˜¯7
         */
         while((NULL != lpFind->GetIdxList()[i]) && (lpFind->GetIdxList()[i]->GetData() < v)){
             lpFind = lpFind->GetIdxList()[i];
         }
-        /// lpFind ÊÇĞÂ½ÚµãÔÚ µÚi¼¶Ë÷ÒıÁ´±íµÄºóÒ»¸ö½Úµã
+        /// lpFind æ˜¯æ–°èŠ‚ç‚¹åœ¨ ç¬¬içº§ç´¢å¼•é“¾è¡¨çš„å‰ä¸€ä¸ªèŠ‚ç‚¹
         lpUpdateNode[i] = lpFind;
     }
 
     for(int i=0; i<level; ++i){
         /**
-         * ÖØĞÂÉèÖÃÁ´±íÖ¸ÕëÎ»ÖÃ
-         *   eg  µÚ1¼¶Ë÷Òı 1  7  10
-         *      ²åÈë6.
-         *      lpUpdateNode[i] ½ÚµãÊÇ1; lpUpdateNode[i]->GetIdxList()[i]½ÚµãÊÇ7
+         * é‡æ–°è®¾ç½®é“¾è¡¨æŒ‡é’ˆä½ç½®
+         *   eg  ç¬¬1çº§ç´¢å¼• 1  7  10
+         *      æ’å…¥6.
+         *      lpUpdateNode[i] èŠ‚ç‚¹æ˜¯1; lpUpdateNode[i]->GetIdxList()[i]èŠ‚ç‚¹æ˜¯7
          *  
-         *  Õâ2¾ä´úÂë¾ÍÊÇ °Ñ6·ÅÔÚ 1ºÍ7Ö®¼ä
+         *  è¿™2å¥ä»£ç å°±æ˜¯ æŠŠ6æ”¾åœ¨ 1å’Œ7ä¹‹é—´
         */
         lpNewNode->GetIdxList()[i] = lpUpdateNode[i]->GetIdxList()[i];
         lpUpdateNode[i]->GetIdxList()[i] = lpNewNode;
@@ -297,7 +297,7 @@ int CSkipList::Delete(int v)
     CNode *lpFind = m_lpHead;
     for(int i=levelCount-1; i>= 0; --i){
         /**
-         * ²éÕÒĞ¡ÓÚvµÄ½Úµã(lpFind).
+         * æŸ¥æ‰¾å°äºvçš„èŠ‚ç‚¹(lpFind).
         */
         while((NULL != lpFind->GetIdxList()[i]) && (lpFind->GetIdxList()[i]->GetData() < v)){
             lpFind = lpFind->GetIdxList()[i];
@@ -305,7 +305,7 @@ int CSkipList::Delete(int v)
         lpUpdateNode[i] = lpFind;
     }
     /**
-     * lpFind ÊÇĞ¡ÓÚvµÄ½Úµã, lpFindµÄÏÂÒ»¸ö½Úµã¾ÍµÈÓÚ»ò´óÓÚvµÄ½Úµã
+     * lpFind æ˜¯å°äºvçš„èŠ‚ç‚¹, lpFindçš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹å°±ç­‰äºæˆ–å¤§äºvçš„èŠ‚ç‚¹
     */
     if((NULL != lpFind->GetIdxList()[0]) && (lpFind->GetIdxList()[0]->GetData() == v)){
         for(int i=levelCount-1; i>=0; --i){
@@ -329,7 +329,7 @@ void CSkipList::PrintAll(int l)
 {
     for(int i=MAX_LEVEL-1; i>=0;--i){
         CNode* lpNode = m_lpHead;
-        std::cout<<"µÚ"<<i<<"¼¶:"<<std::endl;
+        std::cout<<"ç¬¬"<<i<<"çº§:"<<std::endl;
         if((l < 0) || ((l >= 0) && (l == i))){
             while(NULL != lpNode->GetIdxList()[i]){
                 std::cout<<lpNode->GetIdxList()[i]->GetData()<<" ";
